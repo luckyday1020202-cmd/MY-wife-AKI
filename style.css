@@ -1,0 +1,138 @@
+/* 基本頁面設定 */
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); /* 浪漫粉色漸層 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: opacity 0.5s ease;
+    position: relative;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in-body {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 白色浪漫卡片 */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(220, 100, 130, 0.2);
+    text-align: center;
+    max-width: 420px;
+    width: 85%;
+    z-index: 10;
+}
+
+.letter-card {
+    max-width: 550px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+/* 貓咪區域 */
+#cat-container {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cat {
+    font-size: 90px;
+    transition: all 0.3s ease;
+}
+
+.heart-icon {
+    font-size: 50px;
+}
+
+/* 按鈕區域 */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    min-height: 60px;
+}
+
+.choice-btn {
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#btn-yes {
+    background-color: #ff4081;
+    color: white;
+}
+
+#btn-yes:hover {
+    background-color: #f50057;
+}
+
+#btn-no {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+/* 告白文字排版 */
+.text-content {
+    color: #444;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* 愛心掉落動畫 */
+#hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    top: -20px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(105vh) rotate(360deg);
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in-body overflow-hidden">
+
+    <!-- 背景音樂：把 src 裡面的網址替換成您的 MP3 音訊連結 -->
+ <audio autoplay loop><source src="yung kai - my light (我的光) (official lyric video) - yung kai (youtube) (1).mp3" type="audio/mp3">
+  您 的 浏 览 器 不 支 援 音 乐 播 放。
+</audio>
+
+    <!-- 愛心雨容器 -->
+    <div id="hearts-container"></div>
+
+    <!-- 中間大段文字卡片 -->
+    <div class="card letter-card">
+        <div class="heart-icon">💖</div>
+        <h1>to my love อากี</h1>
+        <div class="text-content">
+            <p>
+                                           ตั้งแต่วันที่ฉันได้พบคุณ โลกของฉันก็อบอุ่นและสดใสขึ้นอย่างเหลือเชื่อ รอยยิ้มของคุณคือภาพที่ฉันตั้งตารอมากที่สุดในทุกๆ วัน และทุกช่วงเวลาที่อยู่กับคุณก็เหมือนฝันที่สวยงาม
+            </p>
+            <p>
+                                            ขอบคุณสำหรับมิตรภาพและความเข้าใจของคุณเสมอมา ไม่ว่าฉันจะมีความสุขหรือเศร้า ฉันก็รู้สึกปลอดภัยและมั่นใจทุกครั้งที่คุณอยู่เคียงข้าง คุณเป็นคนพิเศษและขาดไม่ได้สำหรับฉัน
+            </p>
+            <p>
+                                            ในวันข้างหน้า ฉันหวังว่าจะได้จับมือเธอเสมอ พาเธอไปชมทิวทัศน์ที่สวยงาม และสร้างความทรงจำที่แสนวิเศษร่วมกันอีกมากมาย ฉันรักเธอ อากิ!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 自動播放音樂處理（解決部分瀏覽器阻擋自動播放問題）
+        document.addEventListener('click', function() {
+            const music = document.getElementById('bg-music');
+            if (music && music.paused) {
+                music.play();
+            }
+        }, { once: true });
+
+        // 生成緩慢掉落的愛心特效
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = ['💖', '💗', '💕', '🌸', '✨'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4~7秒掉落
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+            
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
